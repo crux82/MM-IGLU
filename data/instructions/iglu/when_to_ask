@@ -1,0 +1,5 @@
+<image>
+Based on this image, can you execute the following command?
+COMMAND: <command>
+
+Answer 'Yes' if you can execute the command or 'No' if you need more information before executing.

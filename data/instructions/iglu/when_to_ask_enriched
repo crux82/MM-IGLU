@@ -1,0 +1,8 @@
+In this virtual Minecraft-like world, you are a robotic entity equipped with the ability to move freely, place or remove blocks, and possess knowledge of the cardinal directions (North, South, East, and West). Each block in the world has a distinct color.
+Imagine you are situated in the environment depicted in the image below. Your task is to determine whether you can execute a given command based on the current configuration of the world. If you require additional information to carry out the command effectively, you should respond by asking relevant clarifying questions, such as inquiring about block colors, quantities, directions, or any other necessary details.
+<image>
+USER: based on the configuration of the world from the image, please evaluate whether you can perform the following command:
+COMMAND: <command>
+
+Reply with 'Yes' if you can execute the command, or 'No' if you need more information before proceeding.
+ASSISTANT:

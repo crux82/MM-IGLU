@@ -1,5 +1,5 @@
 # Introduction
-This repository contains the code for *MM-IGLU: Multi-Modal Interactive Grounded Language Understanding* accepted at the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference, published by *Claudiu Daniel Hromei* (Tor Vergata, University of Rome), *Daniele Margiotta* (Tor Vergata, University of Rome), *Danilo Croce* (Tor Vergata, University of Rome) and *Roberto Basili* (Tor Vergata, University of Rome). The paper will be available [here]().
+This repository contains the code for *MM-IGLU: Multi-Modal Interactive Grounded Language Understanding* accepted at the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference, published by *Claudiu Daniel Hromei* (Tor Vergata, University of Rome), *Daniele Margiotta* (Tor Vergata, University of Rome), *Danilo Croce* (Tor Vergata, University of Rome) and *Roberto Basili* (Tor Vergata, University of Rome). The paper will be available [here](https://aclanthology.org/2024.lrec-main.1000/).
 
 *MM-IGLU* is a Multi-Modal dataset for Interactive Grounded Language Understanding, that expands the resource released during the [IGLU](https://github.com/microsoft/iglu-datasets) competition. While the competition was text-only, we expanded this resource by generating a 3d image for each representation of the world.
 
@@ -101,16 +101,24 @@ If you want more details, please consult the paper, where you can find more metr
 
 # Citation
 ```
-@inproceedings{hromei2024mmiglu,
-  author       = {Claudiu Daniel Hromei and
-                  Daniele Margiotta and
-                  Danilo Croce and
-                  Roberto Basili},
-  title        = {MM-IGLU: Multi-Modal Interactive Grounded Language Understanding},
-  booktitle    = {???},
-  publisher    = {???},
-  year         = {2024},
-  month        = {???},
-  address      = {???}
+@inproceedings{hromei-etal-2024-mm-iglu,
+    title = "{MM}-{IGLU}: Multi-Modal Interactive Grounded Language Understanding",
+    author = "Hromei, Claudiu Daniel  and
+      Margiotta, Daniele  and
+      Croce, Danilo  and
+      Basili, Roberto",
+    editor = "Calzolari, Nicoletta  and
+      Kan, Min-Yen  and
+      Hoste, Veronique  and
+      Lenci, Alessandro  and
+      Sakti, Sakriani  and
+      Xue, Nianwen",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
+    month = may,
+    year = "2024",
+    address = "Torino, Italia",
+    publisher = "ELRA and ICCL",
+    url = "https://aclanthology.org/2024.lrec-main.1000",
+    pages = "11440--11451",
 }
 ```

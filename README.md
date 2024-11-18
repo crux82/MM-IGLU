@@ -1,5 +1,5 @@
 # Introduction
-This repository contains the code for *MM-IGLU: Multi-Modal Interactive Grounded Language Understanding* accepted at the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference, published by *Claudiu Daniel Hromei* (Tor Vergata, University of Rome), *Daniele Margiotta* (Tor Vergata, University of Rome), *Danilo Croce* (Tor Vergata, University of Rome) and *Roberto Basili* (Tor Vergata, University of Rome). The paper will be available [here](https://aclanthology.org/2024.lrec-main.1000/).
+This repository contains the code for *MM-IGLU: Multi-Modal Interactive Grounded Language Understanding* accepted at the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference, published by *Claudiu Daniel Hromei* (Tor Vergata, University of Rome), *Daniele Margiotta* (Tor Vergata, University of Rome), *Danilo Croce* (Tor Vergata, University of Rome) and *Roberto Basili* (Tor Vergata, University of Rome). The paper is available [here](https://aclanthology.org/2024.lrec-main.1000/)!
 
 *MM-IGLU* is a Multi-Modal dataset for Interactive Grounded Language Understanding, that expands the resource released during the [IGLU](https://github.com/microsoft/iglu-datasets) competition. While the competition was text-only, we expanded this resource by generating a 3d image for each representation of the world.
 
@@ -15,13 +15,13 @@ Moreover, we constructed a textual map description of the image, free of halluci
 
 This description functions as a surrogate for the visual clue and enables the usage of text-only models for solving this task. For this reason, we developed a model (based on the BART transformer) for solving the task based only on the textual command and the textual map description that answers back either with the confirmation or a relevant question.
 
-Finally, we developed a further multi-modal model based on [LLaVA](https://github.com/haotian-liu/LLaVA) for solving the task exploiting both the command and the 3d image. It couples a [CLIP](https://github.com/openai/CLIP) model for handling the images with a Language Model for generating the answers. This model achieved the best performance when coupled with the LLaMA-2-chat-13b model.
+Finally, we developed a further multi-modal model based on [LLaVA](https://github.com/haotian-liu/LLaVA) for solving the task by exploiting both the command and the 3d image. It couples a [CLIP](https://github.com/openai/CLIP) model for handling the images with a Language Model for generating the answers. This model achieved the best performance when coupled with the LLaMA-2-chat-13b model.
 
 In the rest of this README file, you will find some more information about the dataset, how to train the models and how to make the inference by using them.
 
 
 ## Dataset
-The dataset is provided in the `data` folder. In `data/iglu_dataset` you can find our split into train/dev/test files. Each row is made of a unique ID, the path to the 3d image, the description in natural language, the command, a flag to mark if the command is clear or ambiguous and the most relevant question or the answer "*I can execute it*", and the path to the json file containing the information about the world (such as the blocks, the positions and the colors). Here we show an example:
+The dataset is provided in the `data` folder. In `data/iglu_dataset` you can find our split into train/dev/test files. Each row is made of a unique ID, the path to the 3d image, the description in natural language, the command, a flag to mark if the command is clear or ambiguous and the most relevant question or the answer "*I can execute it*", and the path to the JSON file containing the information about the world (such as the blocks, the positions and the colors). Here we show an example:
 
 | ID 	| World Path 	| Image path 	| Environment Description 	| Command 	| Is command clear 	| Expected output 	|
 |---	|---	|---	|---	|---	|---	|---	|
@@ -32,7 +32,7 @@ The dataset is provided in the `data` folder. In `data/iglu_dataset` you can fin
 
 # Install Required Lib
 If you are not using Linux, do *NOT* proceed, we intend this software to run on Linux architecture only.  
-We invite you to install the LLaVA dependencies as follows, since our code is based on the 1.0.2 version of LLaVA:
+We invite you to install the LLaVA dependencies as follows since our code is based on the 1.0.2 version of LLaVA:
 
 0. Clone this repository
 ```Shell
@@ -59,7 +59,7 @@ pip install flash-attn --no-build-isolation
 pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
 ```
 
-### Upgrade to latest code base
+### Upgrade to the latest code base
 
 ```Shell
 git pull
@@ -71,18 +71,18 @@ pip install -e .
 # DEMO: How to use
 You can open this [Notebook](demo.ipynb) in Google Colab to use the model. It will load our model from HuggingFace and make a simple test on 2 commands paired with an image.
 
-We release our Multi-Modal model on HuggingFace, you can find:
+We released our Multi-Modal model on HuggingFace, where you can find:
 - [The full model](https://huggingface.co/sag-uniroma2/llava-Llama-2-chat-13b-hf-iglu-merged), where the LoRA modules have been merged with the original model. You can load this model only to use it on your data, or add another LoRA module and fine-tune it on your downstream task. You can find the script we used to merge the weights [here](scripts/merge_lora_weights.py).
 - [The LoRA adapters only](https://huggingface.co/sag-uniroma2/llava-Llama-2-chat-13b-hf-iglu-adapters), so that you can load the original LLaMA2chat-13b model and the CLIP vision model separately for fast testing.
 
 ## Launch a Gradio Web Server.
-You can use [these instructions](launch_gradio.md) to launch a Gradio Web Server for testing our models from an interface, where you can upload your images (of a Minecraft-like world) and give commands to the model.
+You can use [these instructions](launch_gradio.md) to launch a Gradio Web Server to test our models from an interface, where you can upload your images (of a Minecraft-like world) and give commands to the model.
 
 # How to train
 You can run the `finetune_llama2chat_lora.sh` script that will fine-tune a LLaMA model using the LLaVA architecture able to generate questions for the given commands. You can change the input parameters to train a different model (`model_name_or_path`) or on a different task (change the `data_path` for files containing *classification* or *generation* as you like).
 
 # Evaluation
-You can run the `test_llama2chat_lora.sh` script to generate the predictions that the model produces. This were used in the paper to evaluate the model and produced the following evaluation table, where:
+You can run the `test_llama2chat_lora.sh` script to generate the predictions that the model produces. These were used in the paper to evaluate the model and produced the following evaluation table, where:
 - The Train task of: 
   - "*Generation*" evaluates the ability of the model to produce a question if the command is not clear or the answer "*I can execute it*" when it is clear. 
   - "*Multi-Task*" evaluates the same ability as above, but the model is trained on the union of "*Generation*" and "*Classification*", i.e. to asses whether a command is executable or not (*Yes/No* answers).
